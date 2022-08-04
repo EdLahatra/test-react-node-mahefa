@@ -1,0 +1,24 @@
+
+generator client {
+  provider        = "prisma-client-js"
+  // [review mongo]
+  previewFeatures = ["mongodb"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+} // [DATABASE_URL]
+
+
+model User {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  access_token       String?   
+  comments        String?   
+  Attribute2        String?   
+  Attribute3        String?   
+  Attribute4        String?   
+}
+
