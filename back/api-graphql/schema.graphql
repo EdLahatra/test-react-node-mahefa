@@ -2,35 +2,41 @@
 ### Do not make changes to this file directly
 
 
-type Comment {
-  author: User
-  content: String
+type Commande {
+  commandeDetails: String
   createdAt: DateTime!
   id: String!
-  post: Post
-  updatedAt: DateTime!
-}
-
-type Cron {
-  createdAt: DateTime!
-  id: String!
-  status: Int
-  streamer: String
-  time: String
+  total: String
   updatedAt: DateTime!
   user: String
 }
 
-input CronCreateInput {
-  status: Int!
-  streamer: String!
-  time: String!
-  user: String!
+type CommandeDetails {
+  commande: String
+  createdAt: DateTime!
+  id: String!
+  produit: String
+  updatedAt: DateTime!
+  user: String
 }
 
-input CronUpdateInput {
+type Comments {
+  author: User
+  createdAt: DateTime!
   id: String!
-  status: Int!
+  images: String
+  text: String
+  updatedAt: DateTime!
+}
+
+type Contact {
+  address: String
+  createdAt: DateTime!
+  id: String!
+  latitude: String
+  logitude: String
+  phone: String
+  updatedAt: DateTime!
 }
 
 """
@@ -38,131 +44,32 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTime
 
-input EntityCreateInput {
-  test: String!
-  test2: String!
-}
-
-type Follows {
-  createdAt: DateTime!
-  id: String!
-  total: Int
-  updatedAt: DateTime!
-  user: Twitch_user
-}
-
-type Mutation {
-  addCron(data: CronCreateInput!): Cron
-  addPost(data: PostCreateInput!): Post
-  updateCron(data: CronUpdateInput!): Cron
-}
-
-type Pagination {
-  count: Int
-  next: Boolean
-  skip: Int
-  take: Int
-}
-
-type Post {
-  author: User
-  comment: [Comment]
-  content: String
-  createdAt: DateTime!
-  id: String!
-  published: Boolean
-  title: String
-  updatedAt: DateTime!
-  viewCount: Int
-}
-
-input PostCreateInput {
-  content: String
-  title: String
-}
-
-type Profile {
-  bio: String
+type Portfolio {
+  Attribute1: String
   createdAt: DateTime!
   id: String!
   updatedAt: DateTime!
-  user: User
 }
 
-type Query {
-  getAllCron(filter: Int, skip: Int, take: Int): [Cron!]!
-  getAllStreamer(filter: String, skip: Int, take: Int): [Streamer!]!
-  getAllViewer(filter: String, skip: Int, take: Int): [Viewer!]!
-  pagination(filter: String, skip: Int, take: Int): [Int]
-}
-
-type Streamer {
-  community_ids: [String]
+type Produit {
   createdAt: DateTime!
-  game_id: String
-  game_name: String
-  id: String!
-  language: String
-  started_at: String
-  thumbnail_url: String
-  title: String
-  type: String
-  updatedAt: DateTime!
-  user_id: String
-  user_login: String
-  viewer: [Viewer]
-  viewer_count: Int
-}
-
-type Twitch_game {
-  box_art_url: String
-  createdAt: DateTime!
-  game_id: String
-  game_name: String
-  id: String!
-  updatedAt: DateTime!
-}
-
-type Twitch_user {
-  createdAt: DateTime!
-  created_at_user: String
   description: String
-  follows: [Follows]
   id: String!
-  profile_image_url: String
-  type: String
+  images: String
+  name: String
+  prix: String
   updatedAt: DateTime!
-  user_id: String
-  user_name: String
-  view_count: Int
 }
+
+type Query
 
 type User {
   access_token: String
-  comments: [Comment]
+  comments: Comments
   createdAt: DateTime!
-  email: String!
+  email: String
   id: String!
   name: String
-  password: String!
-  posts: [Post]
-  profile: Profile
-  refresh_token: String
+  password: String
   updatedAt: DateTime!
-}
-
-type Viewer {
-  admins: [String]
-  broadcaster: [String]
-  count: Int
-  createdAt: DateTime!
-  cron: String
-  id: String!
-  moderators: [String]
-  name: String
-  staff: [String]
-  streamer: Streamer
-  updatedAt: DateTime!
-  viewers: [String]
-  vips: [String]
 }
