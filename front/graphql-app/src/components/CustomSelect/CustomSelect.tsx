@@ -1,8 +1,9 @@
+import React from "react";
 import { makeStyles, TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
-import React from "react";
 import { dataCountList, dataStream } from "../../data/dataCountList";
 import { CustomSelectProps } from "../../models/CustomSelectProps";
+
 import "./CustomSelect.scss";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +46,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
           }
         }}
         options={isStreamer ? dataStream : dataCountList}
-        getOptionLabel={(option: any) => option.title}
+        getOptionLabel={(option: any) => option.title || ""}
         getOptionSelected={(option: any) => option.title}
         value={isStreamer ? stream : dataCount}
         renderInput={(params: any) => (

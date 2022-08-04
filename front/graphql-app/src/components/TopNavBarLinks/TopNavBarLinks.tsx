@@ -13,35 +13,9 @@ import ViewStreamIcon from "@material-ui/icons/ViewStream";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import React, { useEffect, useState } from "react";
 import { languages } from "../../data/languages";
-import "./TopNavBarLinks.scss";
+import { useStyles } from "./styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: "flex",
-    alignItems: "center",
-  },
-  autoComplete: {
-    width: "150px",
-    color: "white",
-    textAlign: "center",
-  },
-  toolbar: {
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  languageContainer: {
-    display: "flex",
-  },
-  languageIcon: {
-    marginRight: "1rem",
-  },
-}));
+import "./TopNavBarLinks.scss";
 
 const TopNavBarLinks: React.FC = () => {
   const history = useHistory();
