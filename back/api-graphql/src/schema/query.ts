@@ -1,12 +1,8 @@
-import { CronQuery } from './Cron/query'
-import { StreamerQuery } from './Streamer/query'
-import { ViewerQuery } from './Viewer/query'
+import { UserQuery } from './User/query'
 
 
 export const Query = [
-  CronQuery,
-StreamerQuery,
-ViewerQuery,
+  UserQuery,
 
 ]
 
